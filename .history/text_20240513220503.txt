@@ -1,0 +1,47 @@
+3
+##start
+1 23 3
+2 16 7
+3 16 3
+4 16 5
+5 9 3
+6 1 5
+7 4 8
+##end
+0 9 5
+0-4
+0-6
+1-3
+4-3
+5-2
+3-5
+4-2
+2-1
+7-6
+7-2
+7-4
+6-5
+func main() {
+	file, err := os.Open("text.txt") //dosya açma işlemi
+	if err != nil {
+		fmt.Println("Dosya açma hatasi:", err)
+		return
+	}
+	defer file.Close()
+    startID, endID := -1, -1 //ilk önce baslangic ve bitis satırlarına bi id atıyoruz
+	graph := Graph{}         //struct yapısını değişkene atıyoruz
+
+	scanner := bufio.NewScanner(file)
+	var antCount int
+	for scanner.Scan() {
+		line := scanner.Text()
+		if antCount == 0 { // Karınca sayısı daha önce belirlenmediyse
+			antCount, err = strconv.Atoi(line) // Dosyadan karınca sayısını oku
+			if err != nil {
+				return
+			}
+			fmt.Println("karınca sayısı :", antCount)
+		}
+        if len(fields) == 1 {
+				// Eğer satır sadece bir sayıdan oluşuyorsa, bu karınca sayısıdır.
+				antCount, _ = strconv.Atoi(fields[0])

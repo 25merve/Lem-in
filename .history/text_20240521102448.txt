@@ -1,0 +1,9 @@
+number_of_ants
+the_rooms
+the_links
+
+Lx-y
+Lx-y Lx-y
+Lx-y Lx-y Lx-y
+Lx-y Lx-y
+Lx-y
